@@ -8,8 +8,6 @@ class Meal < ActiveRecord::Base
     end
   end
 
-  def self.calories_by_day(meals)
 
-  end
-
+  COUNTRIES = ["United States", "Russia"]
 end
