@@ -28,6 +28,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_median (0.1.2)
+      activerecord
     activejob (4.2.3)
       activesupport (= 4.2.3)
       globalid (>= 0.3.0)
@@ -64,6 +66,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chartkick (1.2.5)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cliver (0.3.2)
@@ -98,6 +101,8 @@ GEM
       railties (>= 3.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    groupdate (2.1.1)
+      activerecord (>= 3.0.0)
     i18n (0.7.0)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
@@ -240,15 +245,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median (~> 0.1.0)
   bcrypt
   bootstrap-sass (~> 3.3.5)
   byebug
   capybara
+  chartkick (~> 1.2.4)
   coffee-rails
   database_cleaner
   datetimepicker-rails!
   devise
   factory_girl_rails
+  groupdate (~> 2.1.1)
   jquery-rails
   launchy
   momentjs-rails

@@ -5,11 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :meals
-  has_many :foods, through: :meals
 
   def search_foods(search_param)
     if search_param
-      meals.joins(:food).where('food LIKE ?', "%#{search_param}%")
+      meals.where('food_name LIKE ?', "%#{search_param}%")
 
       # SELECT email, food, date
       # FROM USERS
@@ -20,4 +19,5 @@ class User < ActiveRecord::Base
       meals
     end
   end
+
 end

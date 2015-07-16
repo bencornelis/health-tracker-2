@@ -5,8 +5,8 @@
   <tbody>
     <% @meals.each do |meal| %>
     <tr>
-      <td><%= meal.food.food %></td>
-      <td><%= meal.food.calories %></td>
+      <td><%= meal.food_name %></td>
+      <td><%= meal.calories %></td>
       <td><%= meal.date_to_s %></td>
     </tr>
     <% end %>

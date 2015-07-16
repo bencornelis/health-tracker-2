@@ -1,5 +1,5 @@
 class Meal < ActiveRecord::Base
-  belongs_to :food
+
   belongs_to :user
 
   def date_to_s
@@ -7,4 +7,9 @@ class Meal < ActiveRecord::Base
       date.strftime("%B %d, %Y") + " at " + date.strftime("%l:%M %p")
     end
   end
+
+  def self.calories_by_day(meals)
+
+  end
+
 end

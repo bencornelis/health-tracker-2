@@ -11,16 +11,18 @@
       <%= link_to "Enter Food", new_food_path, id: "enter-food-link", remote: true %>
       <div id="food-form"></div>
       <div id="foods">
-      <%= render "foods/food" %>
+        <%= render "foods/food" %>
       </div>
-    </div>
-    <div class="col-md-6">
-      <p>calories burns</p>
-      <p> Exercise  -- Cal#</p>
-      <p> Exercise List</p>
     </div>
 
   </div>
+
+  <div id="calories-chart">
+    <%= render "meals/calories_chart" %>
+  </div>
+
+
+
 <% else %>
   Please log in!
 <% end %>

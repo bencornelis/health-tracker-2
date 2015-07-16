@@ -3,6 +3,7 @@
 <head>
   <title>HealthTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,8 +15,6 @@
      </div>
      <div>
        <ul class="nav navbar-nav">
-         <li><%= link_to 'Foods', foods_path %></li>
-         <li><%= link_to 'Meals', meals_path %></li>
        </ul>
        <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
