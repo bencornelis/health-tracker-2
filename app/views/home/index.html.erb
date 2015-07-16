@@ -5,7 +5,7 @@
     <div class="col-md-4">
       <%= form_tag root_path, :method => 'get', id: "search_form", remote: true do %>
         <div id="food-sorting-options">
-          <%= render "foods/food_sorting_options" %>
+          <%= render "meals/meal_sorting_options" %>
         </div>
         <div class="form-group">
           <%= text_field_tag :search_term, params[:search_term], class: "form-control", placeholder: "Enter a search term" %>
@@ -22,12 +22,12 @@
       <% end %>
 
       <hr>
-      <%= link_to "Enter Food", new_food_path, id: "enter-food-link", class: "btn btn-warning", remote: true %>
-      <div id="food-form"></div>
+      <%= link_to "Enter Meal", new_meal_path, id: "enter-meal-link", class: "btn btn-warning", remote: true %>
+      <div id="meal-form"></div>
     </div>
 
-    <div id="foods" class="col-md-7 col-md-offset-1">
-      <%= render "foods/food" %>
+    <div id="meals" class="col-md-7 col-md-offset-1">
+      <%= render "meals/meals" %>
     </div>
   </div>
   <hr>

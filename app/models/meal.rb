@@ -9,5 +9,5 @@ class Meal < ActiveRecord::Base
   end
 
 
-  COUNTRIES = ["United States", "Russia"]
+  COUNTRIES = ["United States", "Russia", "Greenland"]
 end

@@ -6,9 +6,9 @@ describe "food consumed entry" do
     login_as(user, :scope => :user)
     chicken = FactoryGirl.create(:chicken)
     visit '/'
-    click_on 'Enter Food'
+    click_on 'Enter Meal'
     select 'chicken'
-    click_on 'Add food'
+    click_on 'Add meal'
     expect(page).to have_content '120'
   end
 end

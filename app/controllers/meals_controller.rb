@@ -1,4 +1,10 @@
 class MealsController < ApplicationController
+  def new
+    @food_names = Food.order(:food).map(&:food)
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def create
     food = Food.where(food: params[:food]).first

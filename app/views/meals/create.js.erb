@@ -1,9 +1,9 @@
-$("#foods table tbody").prepend("<tr class='success'>" +
+$("#meals table tbody").prepend("<tr class='success'>" +
                                   "<td><%= @meal.food_name %></td>" +
                                   "<td><%= @meal.calories %></td>" +
                                   "<td><%= @meal.date_to_s %></td>" +
                                   "<td><%= @meal.country %></td>" +
                                 "</tr>");
 $("#calories-chart").html("<%= j render('calories_chart') %>");
-$("#food-form").empty();
-$("#enter-food-link").show();
+$("#meal-form").empty();
+$("#enter-meal-link").show();
