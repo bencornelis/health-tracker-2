@@ -4,3 +4,5 @@ $("#foods table tbody").prepend("<tr class='success'>" +
                                   "<td><%= @meal.date_to_s %></td>" +
                                 "</tr>");
 $("#calories-chart").html("<%= j render('calories_chart') %>");
+$("#food-form").empty();
+$("#enter-food-link").show();

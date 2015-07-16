@@ -1,8 +1,14 @@
 <div class="row">
 
   <!-- Line Chart - Single Series -->
+  <div class="col-md-6">
+    <h3>Calories By Day</h3>
+    <%= line_chart @net_calories_by_day, discrete: true %>
+  </div>
 
-  <h3>Calories By Day</h3>
-  <%= line_chart @net_calories_by_day, discrete: true %>
+  <div class="col-md-6">
+    <h3>Calories By Food</h3>
+    <%= pie_chart @calories_by_food, discrete: true %>
+  </div>
 
 </div>

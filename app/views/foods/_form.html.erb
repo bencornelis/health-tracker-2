@@ -1,12 +1,18 @@
-<%= form_tag(meals_path, remote: true) do |f| %>
-  <%= hidden_field_tag :direction, params[:direction] %>
-  <%= hidden_field_tag :sort, params[:sort] %>
-  <%= select_tag :food, options_for_select(@food_names) %>
-  <div class='input-group date' id='datetimepicker1'>
-      <input type='text' name="date" class="form-control" />
-      <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-      </span>
-  </div>
-  <%= submit_tag "Add food" %>
-<% end %>
+  <%= form_tag(meals_path, remote: true) do |f| %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <div class="form-group">
+      <%= label_tag :food, "Select a food item" %>
+      <%= select_tag :food, options_for_select(@food_names), class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <div class='input-group date' id='datetimepicker1'>
+          <input type='text' name="date" placeholder="When did you eat it?" class="form-control" />
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
+    </div>
+    <%= submit_tag "Add food", class: "btn btn-success" %>
+  <% end %>

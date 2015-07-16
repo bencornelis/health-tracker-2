@@ -1,28 +1,30 @@
 <% if user_signed_in? %>
-  <%= form_tag root_path, :method => 'get', id: "search_form", remote: true do %>
-    <div id="food-sorting-options">
-      <%= render "foods/food_sorting_options" %>
-    </div>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  <% end %>
   <div class="row">
-    <div class="col-md-6">
-      <%= link_to "Enter Food", new_food_path, id: "enter-food-link", remote: true %>
+      <br>
+      <hr>
+    <div class="col-md-4">
+      <%= form_tag root_path, :method => 'get', id: "search_form", class: "form-inline", remote: true do %>
+        <div id="food-sorting-options">
+          <%= render "foods/food_sorting_options" %>
+        </div>
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter a search term" %>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+      <% end %>
+      <br>
+      <br>
+      <hr>
+      <%= link_to "Enter Food", new_food_path, id: "enter-food-link", class: "btn btn-warning", remote: true %>
       <div id="food-form"></div>
-      <div id="foods">
-        <%= render "foods/food" %>
-      </div>
     </div>
 
+    <div id="foods" class="col-md-7 col-md-offset-1">
+      <%= render "foods/food" %>
+    </div>
   </div>
-
+  <hr>
   <div id="calories-chart">
     <%= render "meals/calories_chart" %>
   </div>
-
-
-
 <% else %>
   Please log in!
 <% end %>

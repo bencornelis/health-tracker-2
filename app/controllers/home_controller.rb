@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     if user_signed_in?
       @meals = current_user.search_foods(params[:search]).order(sort + " " + direction).paginate(:per_page => 5, :page => params[:page])
       @net_calories_by_day = current_user.meals.group_by_day(:date, format: "%B %d, %Y").sum(:calories)
+      @calories_by_food = current_user.meals.group(:food_name).sum(:calories)
+
     end
     respond_to do |format|
       format.html
