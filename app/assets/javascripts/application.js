@@ -24,7 +24,15 @@ $(function () {
     return false;
   });
 
-  $("#search").keyup(function() {
+  $("#search_term, #search_day").keyup(function() {
     $("#search_form").submit();
+  });
+
+  $("#datetimepicker2").on("dp.change", function() {
+     $("#search_form").submit();
+   });
+
+  $('#datetimepicker2').datetimepicker({
+    format: 'YYYY-MM-DD'
   });
 });

@@ -3,15 +3,24 @@
       <br>
       <hr>
     <div class="col-md-4">
-      <%= form_tag root_path, :method => 'get', id: "search_form", class: "form-inline", remote: true do %>
+      <%= form_tag root_path, :method => 'get', id: "search_form", remote: true do %>
         <div id="food-sorting-options">
           <%= render "foods/food_sorting_options" %>
         </div>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter a search term" %>
+        <div class="form-group">
+          <%= text_field_tag :search_term, params[:search_term], class: "form-control", placeholder: "Enter a search term" %>
+        </div>
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker2'>
+              <input type='text' name="search_day" id="search_day" placeholder="Enter a day" class="form-control" />
+              <span class="input-group-addon">
+                  <span id="search-calendar"class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        </div>
         <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
       <% end %>
-      <br>
-      <br>
+
       <hr>
       <%= link_to "Enter Food", new_food_path, id: "enter-food-link", class: "btn btn-warning", remote: true %>
       <div id="food-form"></div>
@@ -25,6 +34,11 @@
   <div id="calories-chart">
     <%= render "meals/calories_chart" %>
   </div>
+
+  <!-- <div class="col-xs-6">
+    <h3>Visits By Day</h3>
+    <%= geo_chart @meals.group(:date).count %>
+  </div> -->
 <% else %>
   Please log in!
 <% end %>

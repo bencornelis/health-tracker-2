@@ -6,18 +6,17 @@ class User < ActiveRecord::Base
 
   has_many :meals
 
-  def search_foods(search_param)
-    if search_param
-      meals.where('food_name LIKE ?', "%#{search_param}%")
-
-      # SELECT email, food, date
-      # FROM USERS
-      # INNER JOIN meals ON users.id = meals.user_id
-      # INNER JOIN foods ON meals.food_id = foods.id
-      # where food like '%#{search_param}%'
+  def search(search_term, search_day)
+    search_term = nil if search_term == ""
+    search_day = nil if search_day == ""
+    if search_term && search_day
+      meals.where('food_name LIKE ? AND DATE(date) = ?', "%#{search_term}%", search_day)
+    elsif search_term
+      meals.where('food_name LIKE ?', "%#{search_term}%")
+    elsif search_day
+      meals.where('DATE(date) = ?', search_day)
     else
       meals
     end
   end
-
 end
