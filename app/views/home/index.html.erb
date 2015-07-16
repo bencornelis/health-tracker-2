@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+  <%= form_tag root_path, :method => 'get', id: "search_form", remote: true do %>
+    <div id="food-sorting-options">
+      <%= render "foods/food_sorting_options" %>
+    </div>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to "Enter Food", new_food_path, id: "enter-food-link", remote: true %>
+      <div id="food-form"></div>
+      <div id="foods">
+      <%= render "foods/food" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p>calories burns</p>
+      <p> Exercise  -- Cal#</p>
+      <p> Exercise List</p>
+    </div>
+
+  </div>
+<% else %>
+  Please log in!
+<% end %>

@@ -1,0 +1,12 @@
+<%= form_tag(meals_path, remote: true) do |f| %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= select_tag :food, options_for_select(@food_names) %>
+  <div class='input-group date' id='datetimepicker1'>
+      <input type='text' name="date" class="form-control" />
+      <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+  </div>
+  <%= submit_tag "Add food" %>
+<% end %>
